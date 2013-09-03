@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.gumtree.addressbook.AddressBook;
+import com.gumtree.addressbook.ESex;
 
 public class TestAddressBook {
 
@@ -36,6 +37,14 @@ public class TestAddressBook {
 	{
 		String expectedOutput = "Paul";
 		String actual =  new AddressBook().populateAddressBookEntries().get(1).getFirstName();
+		assertEquals(expectedOutput,actual);
+	}
+	
+	@Test
+	public void createAddressBookEntry_getSexOfFirstEntry_Male()
+	{
+		ESex expectedOutput = ESex.MALE;
+		ESex actual =  new AddressBook().populateAddressBookEntries().get(0).getSex();
 		assertEquals(expectedOutput,actual);
 	}
 }

@@ -30,12 +30,26 @@ public class AddressBook
 			String[] name = entries[0].split(" "); 
 			addressBookEntry.setFirstName(name[0]);
 			addressBookEntry.setLastName(name[1]);
-			addressBookEntry.setSex(entries[1]);
+			addressBookEntry.setSex(setSex(entries[1]));
 			addressBookEntry.setDob(formatDate(entries[2]));
 			addressBook.add(addressBookEntry);
 		}
 
 		return addressBook;
+	}
+	
+	private ESex setSex(String textSex)
+	{
+		String  obj = textSex.trim();
+		if(obj.equalsIgnoreCase("Male"))
+		{
+			return ESex.MALE;
+		}
+		else if (obj.equalsIgnoreCase("Female"))
+		{
+			return ESex.FEMALE;
+		}
+		return ESex.OTHER;
 	}
 	
 	 private Date formatDate(String textDob)

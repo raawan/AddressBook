@@ -6,7 +6,7 @@ public class AddressBookEntry
 {
 	private String firstName;
 	private String lastName;
-	private String sex;
+	private ESex sex;
 	private Date dob;
 
 	public String getFirstName() {
@@ -21,16 +21,16 @@ public class AddressBookEntry
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getSex() {
-		return sex;
-	}
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
 	public Date getDob() {
 		return dob;
 	}
 	public void setDob(Date dob) {
 		this.dob = dob;
+	}
+	public ESex getSex() {
+		return sex;
+	}
+	public void setSex(ESex sex) {
+		this.sex = sex;
 	}
 }
