@@ -2,7 +2,7 @@ package com.gumtree.addressbook.data;
 
 import java.util.Date;
 
-import com.gumtree.addressbook.ESex;
+import com.gumtree.addressbook.data.misc.ESex;
 
 public class AddressBookEntry implements IData
 {

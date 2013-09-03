@@ -3,13 +3,13 @@ package com.gumtree.addressbook.service;
 import java.util.Collections;
 import java.util.List;
 
-import com.gumtree.addressbook.AddressBookEntryComparatorByDOB;
 import com.gumtree.addressbook.CalendarUtility;
-import com.gumtree.addressbook.ESex;
 import com.gumtree.addressbook.ICalendarUtility;
 import com.gumtree.addressbook.dao.AddressBookDAOFactory;
 import com.gumtree.addressbook.dao.IAddressBookDAO;
 import com.gumtree.addressbook.data.AddressBookEntry;
+import com.gumtree.addressbook.data.misc.AddressBookEntryComparatorByDOB;
+import com.gumtree.addressbook.data.misc.ESex;
 import com.gumtree.addressbook.exception.InvalidUserException;
 
 public class AddressBookService implements IAddressBookService 

@@ -6,9 +6,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.gumtree.addressbook.ESex;
 import com.gumtree.addressbook.dao.AddressBookDAOFactory;
 import com.gumtree.addressbook.dao.IAddressBookDAO;
+import com.gumtree.addressbook.data.misc.ESex;
 
 public class TestAddressBookDAO 
 {

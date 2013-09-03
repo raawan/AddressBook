@@ -1,4 +1,4 @@
-package com.gumtree.addressbook;
+package com.gumtree.addressbook.data.misc;
 
 import java.util.Comparator;
 

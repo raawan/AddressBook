@@ -1,4 +1,4 @@
-package com.gumtree.addressbook;
+package com.gumtree.addressbook.config;
 
 import java.io.FileInputStream;
 import java.io.IOException;

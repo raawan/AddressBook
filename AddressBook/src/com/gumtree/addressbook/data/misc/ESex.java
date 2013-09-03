@@ -1,4 +1,4 @@
-package com.gumtree.addressbook;
+package com.gumtree.addressbook.data.misc;
 
 public enum ESex 
 {

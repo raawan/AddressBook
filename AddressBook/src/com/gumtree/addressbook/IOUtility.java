@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.gumtree.addressbook.config.PropertiesConfiguration;
+
 public class IOUtility implements IIOUtility {
 
 	@Override
