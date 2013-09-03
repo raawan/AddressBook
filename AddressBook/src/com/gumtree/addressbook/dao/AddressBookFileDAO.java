@@ -2,12 +2,12 @@ package com.gumtree.addressbook.dao;
 
 import java.util.List;
 
-import com.gumtree.addressbook.DateUtility;
-import com.gumtree.addressbook.IOUtility;
 import com.gumtree.addressbook.data.AddressBook;
 import com.gumtree.addressbook.data.AddressBookEntry;
 import com.gumtree.addressbook.data.misc.ESex;
 import com.gumtree.addressbook.exception.InvalidUserException;
+import com.gumtree.addressbook.utility.DateUtility;
+import com.gumtree.addressbook.utility.IOUtility;
 
 public class AddressBookFileDAO implements IAddressBookDAO 
 {
