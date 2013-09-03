@@ -2,13 +2,11 @@ package com.gumtree.addressbook.dao;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import com.gumtree.addressbook.DateUtility;
 import com.gumtree.addressbook.ESex;
 import com.gumtree.addressbook.PropertiesConfiguration;
 import com.gumtree.addressbook.data.AddressBook;
@@ -40,7 +38,7 @@ public class AddressBookFileDAO implements IAddressBookDAO
 			addressBookEntry.setFirstName(name[0]);
 			addressBookEntry.setLastName(name[1]);
 			addressBookEntry.setSex(setSex(entries[1]));
-			addressBookEntry.setDob(formatDate(entries[2]));
+			addressBookEntry.setDob(new DateUtility().formatDate((entries[2])));
 			addressBook.getAddressBookEntry().add(addressBookEntry);
 		}
 	}
@@ -57,19 +55,6 @@ public class AddressBookFileDAO implements IAddressBookDAO
 			return ESex.FEMALE;
 		}
 		return ESex.OTHER;
-	}
-
-	private Date formatDate(String textDob)
-	{
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
-		Date date = null;
-		try 
-		{
-			date = formatter.parse(textDob);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return date;
 	}
 
 	private  final List<String> scanAddressBookFile()
