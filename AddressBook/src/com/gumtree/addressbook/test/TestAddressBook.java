@@ -6,9 +6,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.gumtree.addressbook.AddressBookFileDAO;
 import com.gumtree.addressbook.ESex;
-import com.gumtree.addressbook.IAddressBookDAO;
+import com.gumtree.addressbook.dao.AddressBookFileDAO;
+import com.gumtree.addressbook.dao.IAddressBookDAO;
 
 public class TestAddressBook 
 {
@@ -26,10 +26,10 @@ public class TestAddressBook
 		addressBook = null;
 	}
 
-	/*
-	  * Test Name Format
-	   * MethodName_Scenario_ExpectedOutput
-	   */
+		/*
+		 * Test Name Format
+		 * MethodName_Scenario_ExpectedOutput
+		 */
 	
 	@Test
 	public void createAddressBookEntry_getFirstNameOfFirstEntry_firstNameOFFirstEntry()

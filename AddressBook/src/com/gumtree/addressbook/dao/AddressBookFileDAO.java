@@ -1,4 +1,4 @@
-package com.gumtree.addressbook;
+package com.gumtree.addressbook.dao;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+
+import com.gumtree.addressbook.AddressBook;
+import com.gumtree.addressbook.AddressBookEntry;
+import com.gumtree.addressbook.ESex;
 
 public class AddressBookFileDAO implements IAddressBookDAO 
 {
