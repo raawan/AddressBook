@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.gumtree.addressbook.ESex;
+import com.gumtree.addressbook.PropertiesConfiguration;
 import com.gumtree.addressbook.data.AddressBook;
 import com.gumtree.addressbook.data.AddressBookEntry;
 import com.gumtree.addressbook.exception.InvalidUserException;
@@ -75,10 +76,8 @@ public class AddressBookFileDAO implements IAddressBookDAO
 	{
 		final File file;
 		final List<String> addressBookCSV = new ArrayList<String>();
-		//ToDo: put location in properties file
-		String fileLocation = "D:\\Workspace\\TestEgit\\TestAddressBook\\Resources\\AddressBook";
-
-		file = new File(fileLocation);
+		
+		file = new File(new PropertiesConfiguration().getCSVAddressBookFileLocationProperty());
 		Scanner scanner = null;
 		try
 		{
