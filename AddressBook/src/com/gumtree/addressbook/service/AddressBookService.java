@@ -2,6 +2,7 @@ package com.gumtree.addressbook.service;
 
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -46,15 +47,21 @@ public class AddressBookService implements IAddressBookService
 	{
 		AddressBookEntry person1 = addressBookDAO.getAddressBookEntryByFirstName(person1FirstName);
 		AddressBookEntry person2 = addressBookDAO.getAddressBookEntryByFirstName(person2FirstName);
-
+		
+		return ageDifferenceInDays(person1.getDob(),person2.getDob());
+	}
+	
+	private int ageDifferenceInDays(Date person1DOB, Date person2DOB)
+	{
 		Calendar cal1 = new GregorianCalendar();
 		Calendar cal2 = new GregorianCalendar();
 
-		cal1.setTime(person1.getDob());
-		cal2.setTime(person2.getDob());
+		cal1.setTime(person1DOB);
+		cal2.setTime(person2DOB);
 		return daysBetween(cal1, cal2);
 	}
-
+	   
+	
 	private int daysBetween(Calendar startDate, Calendar endDate) 
 	{  
 		Calendar date = (Calendar) startDate.clone();  
