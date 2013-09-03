@@ -6,17 +6,24 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.gumtree.addressbook.AddressBook;
+import com.gumtree.addressbook.AddressBookFileDAO;
 import com.gumtree.addressbook.ESex;
+import com.gumtree.addressbook.IAddressBookDAO;
 
-public class TestAddressBook {
-
+public class TestAddressBook 
+{
+	private IAddressBookDAO addressBook;
+	
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() throws Exception 
+	{
+		addressBook = new AddressBookFileDAO();
 	}
 
 	@After
-	public void tearDown() throws Exception {
+	public void tearDown() throws Exception 
+	{
+		addressBook = null;
 	}
 
 	/*
@@ -28,7 +35,7 @@ public class TestAddressBook {
 	public void createAddressBookEntry_getFirstNameOfFirstEntry_firstNameOFFirstEntry()
 	{
 		String expectedOutput = "Bill";
-		String actual =  new AddressBook().populateAddressBookEntries().get(0).getFirstName();
+		String actual =   addressBook.getAddressBook().getAddressBookEntry().get(0).getFirstName();
 		assertEquals(expectedOutput,actual);
 	}
 	
@@ -36,7 +43,7 @@ public class TestAddressBook {
 	public void createAddressBookEntry_getFirstNameOfSecondEntry_firstNameOfSecondEntry()
 	{
 		String expectedOutput = "Paul";
-		String actual =  new AddressBook().populateAddressBookEntries().get(1).getFirstName();
+		String actual =   addressBook.getAddressBook().getAddressBookEntry().get(1).getFirstName();
 		assertEquals(expectedOutput,actual);
 	}
 	
@@ -44,7 +51,7 @@ public class TestAddressBook {
 	public void createAddressBookEntry_getSexOfFirstEntry_Male()
 	{
 		ESex expectedOutput = ESex.MALE;
-		ESex actual =  new AddressBook().populateAddressBookEntries().get(0).getSex();
+		ESex actual =   addressBook.getAddressBook().getAddressBookEntry().get(0).getSex();
 		assertEquals(expectedOutput,actual);
 	}
 }
