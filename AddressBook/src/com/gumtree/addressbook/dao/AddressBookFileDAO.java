@@ -1,14 +1,10 @@
 package com.gumtree.addressbook.dao;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import com.gumtree.addressbook.DateUtility;
 import com.gumtree.addressbook.ESex;
-import com.gumtree.addressbook.PropertiesConfiguration;
+import com.gumtree.addressbook.IOUtility;
 import com.gumtree.addressbook.data.AddressBook;
 import com.gumtree.addressbook.data.AddressBookEntry;
 import com.gumtree.addressbook.exception.InvalidUserException;
@@ -24,10 +20,24 @@ public class AddressBookFileDAO implements IAddressBookDAO
 		this.populateAddressBookEntries();
 		return addressBook;
 	}
+	
+	@Override
+	public AddressBookEntry getAddressBookEntryByFirstName(String firstName) 
+				throws InvalidUserException 
+	{
+		this.populateAddressBookEntries();
+		for(AddressBookEntry entry : addressBook.getAddressBookEntry())
+		{
+			if(entry.getFirstName().equalsIgnoreCase(firstName.trim()))
+				return entry;
+		}
+		throw new InvalidUserException();
+	}
 
+	
 	private void  populateAddressBookEntries() 
 	{
-		final List<String> addressBookCSV = this.scanAddressBookFile();
+		final List<String> addressBookCSV = new IOUtility().scanAddressBookFile();
 		AddressBookEntry addressBookEntry = null;
 
 		for(String addressBookCSVEntry: addressBookCSV)
@@ -56,46 +66,5 @@ public class AddressBookFileDAO implements IAddressBookDAO
 		}
 		return ESex.OTHER;
 	}
-
-	private  final List<String> scanAddressBookFile()
-	{
-		final File file;
-		final List<String> addressBookCSV = new ArrayList<String>();
-		
-		file = new File(new PropertiesConfiguration().getCSVAddressBookFileLocationProperty());
-		Scanner scanner = null;
-		try
-		{
-			scanner = new Scanner(file);
-			while(scanner.hasNextLine())
-			{
-				addressBookCSV.add(scanner.nextLine());
-			}
-		}
-		catch(final FileNotFoundException ex)
-		{
-			//ToDO: Handle Error logic
-			ex.printStackTrace();
-		}
-		finally
-		{
-			scanner.close();
-		}
-		return addressBookCSV;
-	}
-
-	@Override
-	public AddressBookEntry getAddressBookEntryByFirstName(String firstName) 
-				throws InvalidUserException 
-	{
-		this.populateAddressBookEntries();
-		for(AddressBookEntry entry : addressBook.getAddressBookEntry())
-		{
-			if(entry.getFirstName().equalsIgnoreCase(firstName.trim()))
-				return entry;
-		}
-		throw new InvalidUserException();
-	}
-
 
 }
