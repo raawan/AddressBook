@@ -32,4 +32,10 @@ public class TestAddressBookService {
 		assertEquals("Wes Jackson", oldestPersonName);
 	}
 
+	@Test
+	public void testTotalDaysDifferenceBetweenTwoPersonsAge_readTwoPersonsAge_ReturnTheAgeDiffInDays()
+	{
+		int diff = new AddressBookService().daysDifferenceBetweenTwoPersonsAge("Bill", "Paul");
+		assertEquals( 2862, diff);
+	}
 }
