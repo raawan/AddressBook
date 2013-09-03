@@ -9,9 +9,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-import com.gumtree.addressbook.AddressBook;
-import com.gumtree.addressbook.AddressBookEntry;
 import com.gumtree.addressbook.ESex;
+import com.gumtree.addressbook.data.AddressBook;
+import com.gumtree.addressbook.data.AddressBookEntry;
 
 public class AddressBookFileDAO implements IAddressBookDAO 
 {

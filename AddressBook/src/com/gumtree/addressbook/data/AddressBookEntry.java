@@ -1,6 +1,8 @@
-package com.gumtree.addressbook;
+package com.gumtree.addressbook.data;
 
 import java.util.Date;
+
+import com.gumtree.addressbook.ESex;
 
 public class AddressBookEntry 
 {

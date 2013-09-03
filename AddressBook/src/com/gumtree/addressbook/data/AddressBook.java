@@ -1,4 +1,4 @@
-package com.gumtree.addressbook;
+package com.gumtree.addressbook.data;
 
 import java.util.ArrayList;
 import java.util.List;
