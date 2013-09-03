@@ -30,5 +30,13 @@ public class TestAddressBook {
 		String actual = new AddressBook().getAddressBook().get(0);
 		assertEquals(expectedOutput,actual);
 	}
-
+	
+	@Test
+	 public void readAddressBook_getSecondLine_SecondlineinTextFormat() 
+	  {
+	    String expectedOutput = "Paul Robinson, Male, 15/01/85";
+	    String actual = new AddressBook().getAddressBook().get(1);
+	    assertEquals(expectedOutput,actual);
+	  }
+	
 }
