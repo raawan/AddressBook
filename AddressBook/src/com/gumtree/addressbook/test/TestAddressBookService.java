@@ -33,9 +33,16 @@ public class TestAddressBookService {
 	}
 
 	@Test
-	public void testTotalDaysDifferenceBetweenTwoPersonsAge_readTwoPersonsAge_ReturnTheAgeDiffInDays()
+	public void testTotalDaysDifferenceBetweenTwoPersonsAge_readTwoPersonsAge_ReturnTheAgeDiffInDays_1()
 	{
 		int diff = new AddressBookService().daysDifferenceBetweenTwoPersonsAge("Bill", "Paul");
+		assertEquals( 2862, diff);
+	}
+	
+	@Test
+	public void testTotalDaysDifferenceBetweenTwoPersonsAge_readTwoPersonsAge_ReturnTheAgeDiffInDays_2()
+	{
+		int diff = new AddressBookService().daysDifferenceBetweenTwoPersonsAge( "Paul","Bill");
 		assertEquals( 2862, diff);
 	}
 }
