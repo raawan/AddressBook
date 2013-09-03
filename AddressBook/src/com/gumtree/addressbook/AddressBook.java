@@ -31,28 +31,34 @@ public class AddressBook
 			addressBookEntry.setFirstName(name[0]);
 			addressBookEntry.setLastName(name[1]);
 			addressBookEntry.setSex(entries[1]);
-
-			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
-			Date date = null;
-			try 
-			{
-				date = formatter.parse(entries[2]);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-			addressBookEntry.setDob(date);
+			addressBookEntry.setDob(formatDate(entries[2]));
 			addressBook.add(addressBookEntry);
 		}
 
 		return addressBook;
 	}
-
+	
+	 private Date formatDate(String textDob)
+	 {
+		 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+		 Date date = null;
+		 try 
+		 {
+			 date = formatter.parse(textDob);
+		 } 
+		 catch (ParseException e) 
+		 {
+			 e.printStackTrace();
+		 }
+		 return date;
+	 }
+	 
 	private  final List<String> scanAddressBookFile()
 	{
 		final File file;
 		final List<String> addressBookCSV = new ArrayList<String>();
 		//ToDo: put location in properties file
-		String fileLocation = "D:\\Workspace\\TestEgit\\TestAddressBook\\Resources\\AddressBook";
+		String fileLocation = "D:\\Workspace\\Gumtree\\AddressBook\\Resources\\AddressBook";
 
 		file = new File(fileLocation);
 		Scanner scanner = null;
