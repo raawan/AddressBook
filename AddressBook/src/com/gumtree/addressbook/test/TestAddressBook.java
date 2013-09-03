@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.gumtree.addressbook.ESex;
-import com.gumtree.addressbook.dao.AddressBookFileDAO;
+import com.gumtree.addressbook.dao.AddressBookDAOFactory;
 import com.gumtree.addressbook.dao.IAddressBookDAO;
 
 public class TestAddressBook 
@@ -17,7 +17,7 @@ public class TestAddressBook
 	@Before
 	public void setUp() throws Exception 
 	{
-		addressBook = new AddressBookFileDAO();
+		addressBook = AddressBookDAOFactory.getAddressBookDAOFactory().getAddressBookDAOInstance("file");
 	}
 
 	@After
