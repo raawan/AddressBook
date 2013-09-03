@@ -1,11 +1,25 @@
 package com.gumtree.addressbook.service;
 
-public class AddressBookService implements IAddressBookService {
+import com.gumtree.addressbook.ESex;
+import com.gumtree.addressbook.dao.AddressBookDAOFactory;
+import com.gumtree.addressbook.dao.IAddressBookDAO;
+import com.gumtree.addressbook.data.AddressBookEntry;
 
+public class AddressBookService implements IAddressBookService 
+{
+	private final IAddressBookDAO  addressBook  = 
+			        AddressBookDAOFactory.getAddressBookDAOFactory().getAddressBookDAOInstance("file");
+	
 	@Override
 	public int totalMalesInAddressBook() 
 	{
-		return 0;
+		int totalMales = 0;
+		for(AddressBookEntry addressEntry : addressBook.getAddressBook().getAddressBookEntry())
+		{
+			if(addressEntry.getSex().equals(ESex.MALE))
+				totalMales++;
+		}
+		return totalMales;
 	}
 
 }
