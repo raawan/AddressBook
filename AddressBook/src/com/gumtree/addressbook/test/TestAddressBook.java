@@ -1,0 +1,34 @@
+package com.gumtree.addressbook.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.gumtree.addressbook.AddressBook;
+
+public class TestAddressBook {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	/*
+	+   * Test Name Format
+	+   * MethodName_Scenario_ExpectedOutput
+	+   */
+	
+	@Test
+	public void readAddressBook_getFirstLine_FirstlineinTextFormat() 
+	{
+		String expectedOutput = "Bill McKnight, Male, 16/03/77";
+		String actual = new AddressBook().getAddressBook().get(0);
+		assertEquals(expectedOutput,actual);
+	}
+
+}
