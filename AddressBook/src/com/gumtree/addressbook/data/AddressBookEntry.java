@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.gumtree.addressbook.ESex;
 
-public class AddressBookEntry 
+public class AddressBookEntry implements IData
 {
 	private String firstName;
 	private String lastName;
