@@ -10,7 +10,7 @@ import com.gumtree.addressbook.ESex;
 import com.gumtree.addressbook.dao.AddressBookDAOFactory;
 import com.gumtree.addressbook.dao.IAddressBookDAO;
 
-public class TestAddressBook 
+public class TestAddressBookDAO 
 {
 	private IAddressBookDAO addressBook;
 	
