@@ -35,6 +35,7 @@ public class TestAddressBookService {
 
 	@Test
 	public void testTotalDaysDifferenceBetweenTwoPersonsAge_readTwoPersonsAge_ReturnTheAgeDiffInDays_1()
+			throws InvalidUserException 
 	{
 		int diff = new AddressBookService().daysDifferenceBetweenTwoPersonsAge("Bill", "Paul");
 		assertEquals( 2862, diff);
@@ -42,6 +43,7 @@ public class TestAddressBookService {
 	
 	@Test
 	public void testTotalDaysDifferenceBetweenTwoPersonsAge_readTwoPersonsAge_ReturnTheAgeDiffInDays_2()
+			throws InvalidUserException 
 	{
 		int diff = new AddressBookService().daysDifferenceBetweenTwoPersonsAge( "Paul","Bill");
 		assertEquals( 2862, diff);
@@ -49,6 +51,7 @@ public class TestAddressBookService {
 	
 	@Test(expected=InvalidUserException.class)
 	public void testTotalDaysDifferenceBetweenTwoPersonsAge_InvalidUserName_ThrowsInvalidUserNameException()
+			throws InvalidUserException 
 	{
 		int diff = new AddressBookService().daysDifferenceBetweenTwoPersonsAge( "qwerty","Bill");
 		assertEquals( 2862, diff);

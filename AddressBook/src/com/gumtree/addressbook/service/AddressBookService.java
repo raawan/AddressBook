@@ -10,6 +10,7 @@ import com.gumtree.addressbook.ICalendarUtility;
 import com.gumtree.addressbook.dao.AddressBookDAOFactory;
 import com.gumtree.addressbook.dao.IAddressBookDAO;
 import com.gumtree.addressbook.data.AddressBookEntry;
+import com.gumtree.addressbook.exception.InvalidUserException;
 
 public class AddressBookService implements IAddressBookService 
 {
@@ -42,7 +43,7 @@ public class AddressBookService implements IAddressBookService
 
 	@Override
 	public int daysDifferenceBetweenTwoPersonsAge(String person1FirstName,
-			String person2FirstName) 
+			String person2FirstName) throws InvalidUserException 
 	{
 		AddressBookEntry person1 = addressBookDAO.getAddressBookEntryByFirstName(person1FirstName);
 		AddressBookEntry person2 = addressBookDAO.getAddressBookEntryByFirstName(person2FirstName);

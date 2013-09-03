@@ -12,6 +12,7 @@ import java.util.Scanner;
 import com.gumtree.addressbook.ESex;
 import com.gumtree.addressbook.data.AddressBook;
 import com.gumtree.addressbook.data.AddressBookEntry;
+import com.gumtree.addressbook.exception.InvalidUserException;
 
 public class AddressBookFileDAO implements IAddressBookDAO 
 {
@@ -101,6 +102,7 @@ public class AddressBookFileDAO implements IAddressBookDAO
 
 	@Override
 	public AddressBookEntry getAddressBookEntryByFirstName(String firstName) 
+				throws InvalidUserException 
 	{
 		this.populateAddressBookEntries();
 		for(AddressBookEntry entry : addressBook.getAddressBookEntry())
@@ -108,7 +110,7 @@ public class AddressBookFileDAO implements IAddressBookDAO
 			if(entry.getFirstName().equalsIgnoreCase(firstName.trim()))
 				return entry;
 		}
-		return null;
+		throw new InvalidUserException();
 	}
 
 
