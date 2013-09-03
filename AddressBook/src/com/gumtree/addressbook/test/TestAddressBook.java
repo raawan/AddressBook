@@ -19,9 +19,9 @@ public class TestAddressBook {
 	}
 
 	/*
-	+   * Test Name Format
-	+   * MethodName_Scenario_ExpectedOutput
-	+   */
+	  * Test Name Format
+	   * MethodName_Scenario_ExpectedOutput
+	   */
 	
 	@Test
 	public void readAddressBook_getFirstLine_FirstlineinTextFormat() 
@@ -43,7 +43,7 @@ public class TestAddressBook {
 	public void createAddressBookEntry_getFirstNameOfFirstEntry_firstNameOFFirstEntry()
 	{
 		String expectedOutput = "Bill";
-		String actual =  new AddressBook().populateAddressBookEntries().getFirstName();
+		String actual =  new AddressBook().populateAddressBookEntries().get(0).getFirstName();
 		assertEquals(expectedOutput,actual);
 	}
 	
@@ -51,7 +51,7 @@ public class TestAddressBook {
 	public void createAddressBookEntry_getFirstNameOfSecondEntry_firstNameOfSecondEntry()
 	{
 		String expectedOutput = "Paul";
-		String actual =  new AddressBook().populateAddressBookEntries().getFirstName();
+		String actual =  new AddressBook().populateAddressBookEntries().get(1).getFirstName();
 		assertEquals(expectedOutput,actual);
 	}
 }

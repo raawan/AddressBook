@@ -11,40 +11,53 @@ import java.util.Scanner;
 
 public class AddressBook 
 {
-	private final List<String> addressBook = new ArrayList<String>();
-	private final AddressBookEntry firstAddressBookEntry = new AddressBookEntry();
+	private final List<String> addressBookCSV  = new ArrayList<String>();
+	private final List<AddressBookEntry> addressBook  = new ArrayList<AddressBookEntry>();
 
 	public List<String> getAddressBook() 
 	{
 		this.scanAddressBookFile();
+		return addressBookCSV;
+	}
+	
+	public List<AddressBookEntry> getAddressBookEntry() {
 		return addressBook;
 	}
-
-	public AddressBookEntry populateAddressBookEntries() 
+	
+	public List<AddressBookEntry> populateAddressBookEntries() 
 	{
 		this.scanAddressBookFile();
-		String[] entries = addressBook.get(0).split(",");
-		String[] name = entries[0].split(" "); 
-		firstAddressBookEntry.setFirstName(name[0]);
-		firstAddressBookEntry.setLastName(name[0]);
-		firstAddressBookEntry.setSex(entries[1]);
 
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
-		Date date = null;
-		try 
+		AddressBookEntry addressBookEntry = null;
+		for(String addressBookCSVEntry: addressBookCSV)
 		{
-			 date = formatter.parse(entries[2]);
-		} catch (ParseException e) {
-			e.printStackTrace();
+			addressBookEntry = new AddressBookEntry();
+			String[] entries = addressBookCSVEntry.split(",");
+			String[] name = entries[0].split(" "); 
+			addressBookEntry.setFirstName(name[0]);
+			addressBookEntry.setLastName(name[1]);
+			addressBookEntry.setSex(entries[1]);
+
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+			Date date = null;
+			try 
+			{
+				 date = formatter.parse(entries[2]);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			addressBookEntry.setDob(date);
+			addressBook.add(addressBookEntry);
 		}
-		firstAddressBookEntry.setDob(date);
-		return firstAddressBookEntry;
+
+		return addressBook;
 	}
 
 
 	private  final void scanAddressBookFile()
 	{
 		final File file;
+		//ToDo: put location in properties file
 		String fileLocation = "D:\\Workspace\\Gumtree\\AddressBook\\Resources\\AddressBook";
 
 		file = new File(fileLocation);
@@ -54,7 +67,7 @@ public class AddressBook
 			scanner = new Scanner(file);
 			while(scanner.hasNextLine())
 			{
-				addressBook.add(scanner.nextLine());
+				addressBookCSV.add(scanner.nextLine());
 			}
 		}
 		catch(final FileNotFoundException ex)
