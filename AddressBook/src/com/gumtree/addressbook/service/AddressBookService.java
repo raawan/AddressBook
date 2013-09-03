@@ -56,8 +56,16 @@ public class AddressBookService implements IAddressBookService
 		Calendar cal1 = new GregorianCalendar();
 		Calendar cal2 = new GregorianCalendar();
 
-		cal1.setTime(person1DOB);
-		cal2.setTime(person2DOB);
+		if(person1DOB.after(person2DOB))
+		{
+			cal1.setTime(person2DOB);
+			cal2.setTime(person1DOB);
+		}
+		else
+		{
+			cal1.setTime(person1DOB);
+			cal2.setTime(person2DOB);
+		}
 		return daysBetween(cal1, cal2);
 	}
 	   
