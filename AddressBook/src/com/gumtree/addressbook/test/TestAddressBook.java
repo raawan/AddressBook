@@ -24,22 +24,6 @@ public class TestAddressBook {
 	   */
 	
 	@Test
-	public void readAddressBook_getFirstLine_FirstlineinTextFormat() 
-	{
-		String expectedOutput = "Bill McKnight, Male, 16/03/77";
-		String actual = new AddressBook().getAddressBook().get(0);
-		assertEquals(expectedOutput,actual);
-	}
-	
-	@Test
-	 public void readAddressBook_getSecondLine_SecondlineinTextFormat() 
-	  {
-	    String expectedOutput = "Paul Robinson, Male, 15/01/85";
-	    String actual = new AddressBook().getAddressBook().get(1);
-	    assertEquals(expectedOutput,actual);
-	  }
-	
-	@Test
 	public void createAddressBookEntry_getFirstNameOfFirstEntry_firstNameOFFirstEntry()
 	{
 		String expectedOutput = "Bill";

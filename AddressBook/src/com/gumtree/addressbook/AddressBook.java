@@ -11,22 +11,16 @@ import java.util.Scanner;
 
 public class AddressBook 
 {
-	private final List<String> addressBookCSV  = new ArrayList<String>();
-	private final List<AddressBookEntry> addressBook  = new ArrayList<AddressBookEntry>();
+	private final List<AddressBookEntry> addressBook = new ArrayList<AddressBookEntry>(); 
 
-	public List<String> getAddressBook() 
+	public List<AddressBookEntry> getAddressBookEntry() 
 	{
-		this.scanAddressBookFile();
-		return addressBookCSV;
-	}
-	
-	public List<AddressBookEntry> getAddressBookEntry() {
 		return addressBook;
 	}
-	
+
 	public List<AddressBookEntry> populateAddressBookEntries() 
 	{
-		this.scanAddressBookFile();
+		final List<String> addressBookCSV = this.scanAddressBookFile();
 
 		AddressBookEntry addressBookEntry = null;
 		for(String addressBookCSVEntry: addressBookCSV)
@@ -42,7 +36,7 @@ public class AddressBook
 			Date date = null;
 			try 
 			{
-				 date = formatter.parse(entries[2]);
+				date = formatter.parse(entries[2]);
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
@@ -53,12 +47,12 @@ public class AddressBook
 		return addressBook;
 	}
 
-
-	private  final void scanAddressBookFile()
+	private  final List<String> scanAddressBookFile()
 	{
 		final File file;
+		final List<String> addressBookCSV = new ArrayList<String>();
 		//ToDo: put location in properties file
-		String fileLocation = "D:\\Workspace\\Gumtree\\AddressBook\\Resources\\AddressBook";
+		String fileLocation = "D:\\Workspace\\TestEgit\\TestAddressBook\\Resources\\AddressBook";
 
 		file = new File(fileLocation);
 		Scanner scanner = null;
@@ -78,5 +72,7 @@ public class AddressBook
 		{
 			scanner.close();
 		}
+		return addressBookCSV;
 	}
+
 }
