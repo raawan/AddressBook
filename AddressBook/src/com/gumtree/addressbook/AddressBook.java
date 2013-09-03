@@ -9,35 +9,42 @@ import java.util.Scanner;
 public class AddressBook 
 {
 	private final List<String> addressBook = new ArrayList<String>();
-	
-	  public List<String> getAddressBook() 
-	  {
-		  this.scanAddressBookFile();
-		  return addressBook;
-	  }
-	  
-	  private  final void scanAddressBookFile()
-	  {
-		  final File file;
-		  String fileLocation = "D:\\Workspace\\Gumtree\\AddressBook\\Resources\\AddressBook";
+	private final AddressBookEntry firstAddressBookEntry = new AddressBookEntry();
 
-		  file = new File(fileLocation);
-		  Scanner scanner = null;
-		  try
-		  {
-			  scanner = new Scanner(file);
-			  while(scanner.hasNextLine())
-			  {
-				  addressBook.add(scanner.nextLine());
-			  }
-		  }
-		  catch(final FileNotFoundException ex)
-		  {
-			  ex.printStackTrace();
-		  }
-		  finally
-		  {
-			  scanner.close();
-		  }
-	  }
+	public List<String> getAddressBook() 
+	{
+		this.scanAddressBookFile();
+		return addressBook;
+	}
+
+	public AddressBookEntry populateAddressBookEntries() 
+	{
+		return null;
+	}
+
+
+	private  final void scanAddressBookFile()
+	{
+		final File file;
+		String fileLocation = "D:\\Workspace\\Gumtree\\AddressBook\\Resources\\AddressBook";
+
+		file = new File(fileLocation);
+		Scanner scanner = null;
+		try
+		{
+			scanner = new Scanner(file);
+			while(scanner.hasNextLine())
+			{
+				addressBook.add(scanner.nextLine());
+			}
+		}
+		catch(final FileNotFoundException ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			scanner.close();
+		}
+	}
 }
