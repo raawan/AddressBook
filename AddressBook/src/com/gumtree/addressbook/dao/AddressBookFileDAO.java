@@ -99,5 +99,17 @@ public class AddressBookFileDAO implements IAddressBookDAO
 		return addressBookCSV;
 	}
 
+	@Override
+	public AddressBookEntry getAddressBookEntryByFirstName(String firstName) 
+	{
+		this.populateAddressBookEntries();
+		for(AddressBookEntry entry : addressBook.getAddressBookEntry())
+		{
+			if(entry.getFirstName().equalsIgnoreCase(firstName.trim()))
+				return entry;
+		}
+		return null;
+	}
+
 
 }
