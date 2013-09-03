@@ -35,4 +35,43 @@ public class AddressBookEntry implements IData
 	public void setSex(ESex sex) {
 		this.sex = sex;
 	}
+
+	@Override
+	public boolean equals(Object arg0) 
+	{
+		if(arg0==null)
+		{
+			return false;
+		}
+		if(this==arg0)
+		{
+			return true;
+		}
+		if(!(arg0 instanceof AddressBookEntry))
+		{
+			return false;
+		}
+		AddressBookEntry user = (AddressBookEntry)arg0;
+		if(	user.getFirstName().equals(this.getFirstName()) &&
+				user.getLastName().equals(this.getLastName()) &&
+				user.getSex().equals(this.getSex()) &&
+				user.getDob().equals(this.getDob()))
+		{
+			return true;
+		}
+		return super.equals(arg0);
+	}
+
+	@Override
+	public int hashCode() 
+	{
+		final int prime = 37;
+		int result = 1;
+		result = result * prime + this.getFirstName().hashCode();
+		result = result * prime + this.getLastName().hashCode();
+		result = result * prime + this.getSex().hashCode();
+		result = result * prime + this.getDob().hashCode();
+		return result;
+	}
+
 }
