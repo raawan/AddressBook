@@ -25,4 +25,11 @@ public class TestAddressBookService {
 		assertEquals(3, totalMales);
 	}
 
+	@Test
+	public void testOldestPersonInAddressBook_readAddressBookCSVFile_returnTheOldestPerson()
+	{
+		String oldestPersonName = new AddressBookService().oldestPersonInAddressBook();
+		assertEquals("Wes Jackson", oldestPersonName);
+	}
+
 }
