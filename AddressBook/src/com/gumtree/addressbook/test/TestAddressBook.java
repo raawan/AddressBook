@@ -46,4 +46,12 @@ public class TestAddressBook {
 		String actual =  new AddressBook().populateAddressBookEntries().getFirstName();
 		assertEquals(expectedOutput,actual);
 	}
+	
+	@Test
+	public void createAddressBookEntry_getFirstNameOfSecondEntry_firstNameOfSecondEntry()
+	{
+		String expectedOutput = "Paul";
+		String actual =  new AddressBook().populateAddressBookEntries().getFirstName();
+		assertEquals(expectedOutput,actual);
+	}
 }
