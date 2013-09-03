@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.gumtree.addressbook.exception.InvalidUserException;
 import com.gumtree.addressbook.service.AddressBookService;
 
 public class TestAddressBookService {
@@ -43,6 +44,13 @@ public class TestAddressBookService {
 	public void testTotalDaysDifferenceBetweenTwoPersonsAge_readTwoPersonsAge_ReturnTheAgeDiffInDays_2()
 	{
 		int diff = new AddressBookService().daysDifferenceBetweenTwoPersonsAge( "Paul","Bill");
+		assertEquals( 2862, diff);
+	}
+	
+	@Test(expected=InvalidUserException.class)
+	public void testTotalDaysDifferenceBetweenTwoPersonsAge_InvalidUserName_ThrowsInvalidUserNameException()
+	{
+		int diff = new AddressBookService().daysDifferenceBetweenTwoPersonsAge( "qwerty","Bill");
 		assertEquals( 2862, diff);
 	}
 }
