@@ -15,7 +15,6 @@ import com.gumtree.addressbook.service.IAddressBookService;
 @RequestMapping(value="/api/v1/addressBook")
 public class AddressBookController implements IGenericController 
 {
-	//ToDO : service factory
 	private final IAddressBookService addressBookService 
 							= AddressBookServiceFactory.getInstance();
 	
