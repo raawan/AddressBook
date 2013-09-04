@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.gumtree.addressbook.service.AddressBookService;
+import com.gumtree.addressbook.service.AddressBookServiceFactory;
 import com.gumtree.addressbook.service.IAddressBookService;
 
 @Controller()
@@ -16,7 +16,8 @@ import com.gumtree.addressbook.service.IAddressBookService;
 public class AddressBookController implements IGenericController 
 {
 	//ToDO : service factory
-	private final IAddressBookService addressBookService = new AddressBookService();
+	private final IAddressBookService addressBookService 
+							= AddressBookServiceFactory.getInstance();
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public  @ResponseBody String help(HttpServletRequest request, 
